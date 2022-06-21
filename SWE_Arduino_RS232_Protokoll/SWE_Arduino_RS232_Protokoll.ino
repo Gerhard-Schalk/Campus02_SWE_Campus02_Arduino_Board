@@ -52,7 +52,6 @@ void setup() {
 }
 
 void loop() {
-
   // Poti einlesen
   adcRawValuePoti = analogRead( A0 );   // ADC einlesen
 
@@ -65,37 +64,28 @@ void loop() {
 
     // Temperatur Sensor LM75
     tmpValue = LM75_getTemperature();
+ 
+    sendSerialCmd();
   }
-
+ 
   // Update OLED-Display
   oled_UpdateDisplay();
-
-  sendSerialCmd();
-
 }
 
 //  Timer Overflow ISR
 ISR(TIMER3_OVF_vect)
 {
-  static uint8_t secCounter = 0;
-
   // Timer/Counter Zählregister Startwert setzen
   TCNT3 = TIMER_START_VALUE;
 
-  secCounter++;
-
-  if (secCounter >= 59)
-  {
-    secCounter = 0;
-    sysTickTimerFlag = true;
-  }
+  sysTickTimerFlag = true;
 }
 
 
 void serialEvent()
 {
   if ( Serial.available() )
-  {
+  { 
     serialReceiveCmd();
   }
 }
