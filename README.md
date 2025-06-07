@@ -4,8 +4,8 @@
 
 # Arduino Board Setup
 
-## 1. Arduino IDE 1.8.xx Installieren
-Download: https://www.arduino.cc/en/software
+## 1. Arduino Legacy IDE (1.8.X) Installieren
+Download Legacy IDE (1.8.X): https://www.arduino.cc/en/software
 
 ## 2. Arduino Sketch von Github laden
 ![Arduino Sketch von Github laden](/images/Arduino_Sketch_laden.png)
